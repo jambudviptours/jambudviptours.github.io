@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jambudvip Tours | Journeys Beyond Time</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --color-gold: #d4af37;
+            --color-white: #ffffff;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --easing: cubic-bezier(0.4, 0, 0.2, 1); /* Smooth Transition */
+            
+            /* --- BLUR INTENSITY VARIABLE --- */
+            /* Adjust this value to control background blur: 0px = no blur, higher = more blur */
+            --bg-blur-intensity: 3px; /* Start with no blur */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #000; /* Deep black base */
+            font-family: var(--font-sans);
+            color: var(--color-white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- HERO CONTAINER --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            z-index: 5;
+        }
+
+        /* --- BACKGROUND SLIDESHOW --- */
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1);
+            
+            /* --- APPLY BLUR EFFECT HERE --- */
+            /* The blur effect is applied via the variable. To increase blur, change --bg-blur-intensity value above */
+            filter: blur(var(--bg-blur-intensity));
+            
+            /* 5 slides, 5 seconds each = 25s total cycle */
+            animation: kenBurnsCrossfade 25s linear infinite;
+        }
+
+        /* --- UPDATED TRAVEL-RELATED IMAGES --- */
+        .slide:nth-child(1) { 
+            background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2000&auto=format&fit=crop'); /* Taj Mahal */
+            animation-delay: 0s; 
+        }
+        .slide:nth-child(2) { 
+            background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=2000&auto=format&fit=crop'); /* Northern Lights */
+            animation-delay: 5s; 
+        }
+        .slide:nth-child(3) { 
+            background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2000&auto=format&fit=crop'); /* Bali Temple */
+            animation-delay: 10s; 
+        }
+        .slide:nth-child(4) { 
+            background-image: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2000&auto=format&fit=crop'); /* Santorini */
+            animation-delay: 15s; 
+        }
+        .slide:nth-child(5) { 
+            background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=2000&auto=format&fit=crop'); /* Mountain Trekking */
+            animation-delay: 20s; 
+        }
+
+        /* --- OVERLAY --- */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Sophisticated gradient: clear in middle, dark at ends for text/footer */
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.3) 0%,
+                rgba(0,0,0,0.1) 40%,
+                rgba(0,0,0,0.4) 70%,
+                rgba(0,0,0,0.95) 100%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* --- UPDATED PROFESSIONAL TYPOGRAPHY --- */
+        
+        /* 1. BRAND NAME: ELEGANT AND SOPHISTICATED */
+        .brand-name {
+            font-family: var(--font-serif); /* Changed to elegant serif font */
+            font-size: clamp(2.5rem, 5vw, 3.5rem); /* Larger but elegant */
+            font-weight: 600; /* Medium weight - elegant, not too bold */
+            letter-spacing: 0.05em; /* Subtle letter spacing for sophistication */
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.5s forwards;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        /* Add elegant underline to brand name */
+        .brand-name::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+
+        /* 2. Main Headline: Serif, majestic */
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 5.5vw, 4rem); /* Adjusted for better hierarchy */
+            font-weight: 400;
+            font-style: italic; /* Added italic for elegance */
+            line-height: 1.1;
+            color: #ffffff;
+            margin-top: 0.8rem;
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.7s forwards;
+            /* Soft professional shadow, not harsh */
+            text-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            letter-spacing: 0.02em;
+        }
+
+        /* 3. Decorative Line - More elegant */
+        .separator {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+            margin-bottom: 1.8rem;
+            opacity: 0;
+            animation: widthGrow 1s ease 0.9s forwards;
+        }
+
+        /* 4. Sub-headline: Clean Sans-serif */
+        p.sub-headline {
+            font-family: var(--font-sans);
+            font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeUp 1s ease 1.1s forwards;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            letter-spacing: 0.03em;
+        }
+
+        /* --- CTA BUTTON --- */
+        .cta-button {
+            display: inline-block;
+            padding: 1.1rem 3rem;
+            border: 1px solid rgba(212, 175, 55, 0.4); /* Subtle gold border */
+            color: var(--color-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            transition: all 0.4s var(--easing);
+            /* Glassmorphism */
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            animation: fadeUp 1s ease 1.4s forwards;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            background-color: rgba(212, 175, 55, 0.15);
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3);
+            transform: translateY(-3px);
+            border-color: var(--color-gold);
+            letter-spacing: 0.2em;
+        }
+
+        /* --- FIXED SOCIALS --- */
+        .social-fixed {
+            position: fixed;
+            bottom: 2rem;
+            z-index: 20;
+            transition: transform 0.3s ease;
+        }
+        .social-fixed:hover { transform: scale(1.1); }
+        .social-left { left: 2rem; }
+        .social-right { right: 2rem; }
+
+        .icon-svg {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+            transition: fill 0.3s ease;
+        }
+
+        .social-left:hover .icon-svg {
+            fill: #E1306C; /* Instagram color on hover */
+        }
+
+        .wa-circle {
+            background-color: #25D366; 
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .wa-circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+        
+        .wa-circle svg { width: 30px; height: 30px; fill: white; filter: none; }
+
+        /* --- FOOTER --- */
+        .bottom-bar {
+            position: absolute;
+            bottom: 1.5rem;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 1s ease 2s forwards;
+            pointer-events: none;
+        }
+        
+        .copyright {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,1);
+            font-family: var(--font-sans);
+            font-weight: 300;
+        }
+
+        .attribution {
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 4px rgba(0,0,0,1);
+            font-family: var(--font-sans);
+            font-weight: 300;
+        }
+
+        /* --- KEYFRAMES --- */
+        
+        /* Simple 5-second cycle per image */
+        /* 0-20%: Fade in (1s) */
+        /* 20-80%: Stay visible (3s) */
+        /* 80-100%: Fade out (1s) */
+        @keyframes kenBurnsCrossfade {
+            0% { 
+                opacity: 0; 
+                transform: scale(1); 
+            }
+            20% { 
+                opacity: 1; 
+            }
+            80% { 
+                opacity: 1; 
+            }
+            100% { 
+                opacity: 0; 
+                transform: scale(1.1); 
+            }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes widthGrow {
+            from { width: 0; opacity: 0; }
+            to { width: 100px; opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .social-left { left: 1.5rem; bottom: 1.5rem; }
+            .social-right { right: 1.5rem; bottom: 6rem; }
+            .bottom-bar { bottom: 2rem; }
+            .brand-name {
+                font-size: 2rem;
+                margin-bottom: 0.3rem;
+            }
+            .brand-name::after {
+                width: 60px;
+            }
+            h1 { 
+                font-size: 1.8rem; 
+                margin-top: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            .separator { 
+                width: 70px; 
+                margin-bottom: 1.5rem;
+            }
+            p.sub-headline {
+                font-size: 0.9rem;
+                margin-bottom: 2.5rem;
+                max-width: 90%;
+            }
+            .cta-button {
+                padding: 0.9rem 2.5rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand-name {
+                font-size: 1.6rem;
+            }
+            h1 { 
+                font-size: 1.5rem; 
+            }
+            .separator { 
+                width: 50px; 
+            }
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <main class="hero">
+        <div class="brand-name">Jambudvip Tours</div>
+        <h1>Journeys Beyond Time</h1>
+        <div class="separator"></div> 
+        <p class="sub-headline">Curated travel experiences inspired by ancient lands and timeless cultures. Discover hidden gems and create unforgettable memories with our bespoke tour packages.</p>
+        
+        <a href="https://wa.me/919146286094?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Jambudvip%20Tours." class="cta-button">Begin Your Journey</a>
+    </main>
+
+    <a href="https://instagram.com" class="social-fixed social-left" aria-label="Instagram">
+        <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+    </a>
+
+    <a href="https://wa.me/919146286094?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Jambudvip%20Tours." class="social-fixed social-right" aria-label="WhatsApp">
+        <div class="wa-circle">
+            <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </div>
+    </a>
+
+    <footer class="bottom-bar">
+        <div class="copyright">© Jambudvip Tours. All rights reserved.</div>
+        <div class="attribution">Designed by Team ThriveAxis</div>
+    </footer>
+
+</body>
+</html>
