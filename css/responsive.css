@@ -625,6 +625,22 @@
     
     .founder-content {
         flex-direction: column;
+        gap: 32px;
+    }
+    
+    .founder-image {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .founder-image img {
+        width: 100%;
+        height: auto;
+        display: block;
     }
     
     .founder-quote {
@@ -680,10 +696,30 @@
     .founder-content {
         flex-direction: row;
         gap: 40px;
+        align-items: flex-start;
     }
     
     .founder-image {
-        flex: 0 0 40%;
+        flex: 0 0 45%;
+        max-width: 45%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .founder-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .founder-image:hover img {
+        transform: scale(1.03);
+    }
+    
+    .founder-details {
+        flex: 0 0 55%;
     }
     
     .belief-grid {
@@ -698,6 +734,38 @@
     .cta-actions {
         flex-direction: row;
         justify-content: center;
+    }
+}
+
+/* Desktop adjustments for reference */
+@media (min-width: 1024px) {
+    .founder-content {
+        flex-direction: row;
+        gap: 60px;
+        align-items: flex-start;
+    }
+    
+    .founder-image {
+        flex: 0 0 40%;
+        max-width: 40%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .founder-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    
+    .founder-image:hover img {
+        transform: scale(1.05);
+    }
+    
+    .founder-details {
+        flex: 0 0 60%;
     }
 }
 
@@ -1391,4 +1459,5 @@
     .process-connector:nth-child(4) {
         left: 50%;
     }
+
 }
