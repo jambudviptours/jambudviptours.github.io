@@ -1,0 +1,1394 @@
+/* ============================================
+   MOBILE-FIRST RESPONSIVE DESIGN
+   ============================================ */
+
+/* Base Mobile Styles (320px - 767px) are already in main.css */
+
+/* Small Mobile Devices: 320px - 374px */
+@media (max-width: 374px) {
+    .hero-heading {
+        font-size: 32px !important;
+        line-height: 1.1;
+    }
+    
+    .hero-subheading {
+        font-size: 16px !important;
+    }
+    
+    .section-title {
+        font-size: 28px !important;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        min-height: 44px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .hero-cta-stack {
+        width: 100%;
+    }
+    
+    .help-card-content {
+        padding: 16px;
+    }
+    
+    .service-card {
+        padding: 24px 16px;
+    }
+    
+    .tour-card {
+        margin: 0 4px;
+    }
+    
+    /* Carousel indicators for very small screens */
+    .carousel-indicator {
+        width: 6px !important;
+        height: 6px !important;
+        margin: 0 3px !important;
+    }
+    
+    .carousel-indicator.active {
+        transform: scale(1.1) !important;
+    }
+}
+
+/* Mobile Devices: 375px - 424px */
+@media (min-width: 375px) and (max-width: 424px) {
+    .hero-heading {
+        font-size: 36px;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        min-height: 44px;
+    }
+    
+    /* Carousel indicators */
+    .carousel-indicator {
+        width: 7px !important;
+        height: 7px !important;
+        margin: 0 3px !important;
+    }
+    
+    .carousel-indicator.active {
+        transform: scale(1.1) !important;
+    }
+}
+
+/* Mobile Devices: 425px - 639px */
+@media (min-width: 425px) and (max-width: 639px) {
+    .hero-heading {
+        font-size: 40px;
+    }
+    
+    .hero-subheading {
+        font-size: 18px;
+    }
+    
+    .btn {
+        padding: 14px 28px;
+        min-height: 48px;
+    }
+    
+    /* Carousel indicators */
+    .carousel-indicator {
+        width: 8px !important;
+        height: 8px !important;
+        margin: 0 4px !important;
+    }
+    
+    .carousel-indicator.active {
+        transform: scale(1.2) !important;
+    }
+}
+
+/* Mobile: 640px - 767px (Large Mobile) */
+@media (min-width: 640px) and (max-width: 767px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .hero-heading {
+        font-size: 44px;
+    }
+    
+    .hero-subheading {
+        font-size: 20px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .hero-cta-stack {
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
+    }
+    
+    .help-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Carousel indicators for large mobile */
+    .carousel-indicator {
+        width: 8px !important;
+        height: 8px !important;
+        margin: 0 4px !important;
+    }
+    
+    .carousel-indicator.active {
+        transform: scale(1.2) !important;
+    }
+}
+
+/* Mobile Menu Toggle for smaller screens */
+@media (max-width: 767px) {
+    .desktop-nav {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    /* Mobile carousel touch scrolling - FIXED */
+    .tours-carousel {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .carousel-track-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        margin: 0 -16px;
+        padding: 0 16px;
+    }
+    
+    .carousel-track {
+        display: flex;
+        gap: 16px;
+        padding-bottom: 20px;
+        width: max-content;
+    }
+    
+    .carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .tour-card {
+        scroll-snap-align: center;
+        flex: 0 0 calc(100vw - 64px);
+        max-width: calc(100vw - 64px);
+        margin: 0;
+    }
+    
+    .carousel-btn {
+        display: none !important;
+    }
+    
+    /* FIXED: Carousel indicators for mobile - properly sized */
+    .carousel-indicators {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        margin-top: 16px;
+        padding: 4px 0;
+    }
+    
+    .carousel-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #D1D5DB;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+    
+    .carousel-indicator.active {
+        background-color: #2563EB;
+        transform: scale(1.2);
+    }
+    
+    /* Mobile only classes */
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .mobile-only {
+        display: block !important;
+    }
+    
+    /* Fix for mobile touch targets */
+    .mobile-menu-btn,
+    .btn,
+    .social-icon,
+    .carousel-indicator,
+    .category-tab,
+    .btn-learn-more,
+    .btn-package-details {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Carousel indicators exception - smaller touch target */
+    .carousel-indicator {
+        min-height: 20px;
+        min-width: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .carousel-indicator::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: currentColor;
+    }
+    
+    .carousel-indicator.active::before {
+        width: 10px;
+        height: 10px;
+    }
+    
+    /* Fix mobile hero section height */
+    .hero-section {
+        min-height: 500px;
+        height: auto;
+        padding: 80px 0 40px;
+    }
+    
+    /* Fix mobile images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 24px;
+    }
+    
+    /* Typography adjustments */
+    .hero-heading {
+        font-size: 52px;
+    }
+    
+    .hero-subheading {
+        font-size: 20px;
+    }
+    
+    .section-title {
+        font-size: 36px;
+    }
+    
+    /* Button adjustments */
+    .hero-cta-stack {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    /* Who We Help */
+    .help-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Services Snapshot */
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Why Travelers Trust Us */
+    .trust-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .trust-image {
+        flex: 1;
+    }
+    
+    .trust-details {
+        flex: 1;
+    }
+    
+    /* Featured Tours - FIXED for Tablet */
+    .carousel-track-container {
+        overflow: hidden;
+        margin: 0 20px;
+    }
+    
+    .carousel-track {
+        display: flex;
+        gap: 16px;
+        transition: transform 0.5s ease;
+    }
+    
+    .tour-card {
+        flex: 0 0 calc(50% - 8px);
+        min-width: calc(50% - 8px);
+        margin: 0;
+    }
+    
+    .carousel-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        border: 1px solid #E5E7EB;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+    
+    .carousel-btn:hover {
+        background-color: #2563EB;
+        color: white;
+        border-color: #2563EB;
+    }
+    
+    .carousel-btn-prev {
+        left: 0;
+    }
+    
+    .carousel-btn-next {
+        right: 0;
+    }
+    
+    /* FIXED: Carousel indicators for tablet - properly sized */
+    .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        padding: 4px 0;
+    }
+    
+    .carousel-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #D1D5DB;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+    }
+    
+    .carousel-indicator.active {
+        background-color: #2563EB;
+        transform: scale(1.2);
+    }
+    
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Hide sticky WhatsApp button on tablet/desktop */
+    .sticky-whatsapp-btn {
+        display: none;
+    }
+    
+    /* Show desktop navigation */
+    .desktop-nav {
+        display: block;
+    }
+    
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .mobile-nav {
+        display: none !important;
+    }
+}
+
+/* Desktop: 1024px - 1279px */
+@media (min-width: 1024px) {
+    /* Base adjustments */
+    body {
+        font-size: 16px;
+    }
+    
+    .container {
+        max-width: 1200px;
+        padding: 0 32px;
+    }
+    
+    /* Typography adjustments */
+    .hero-heading {
+        font-size: 60px;
+    }
+    
+    .hero-subheading {
+        font-size: 22px;
+    }
+    
+    .section-title {
+        font-size: 40px;
+    }
+    
+    /* Button adjustments */
+    .btn {
+        min-height: 52px;
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        height: 85vh;
+        min-height: 700px;
+    }
+    
+    /* Header adjustments */
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .desktop-nav {
+        display: block;
+    }
+    
+    /* Who We Help */
+    .help-cards-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    /* Featured Tours */
+    .tour-card {
+        flex: 0 0 calc(33.333% - 10.666px);
+        min-width: calc(33.333% - 10.666px);
+    }
+    
+    /* FIXED: Carousel indicators for desktop - properly sized */
+    .carousel-indicators {
+        gap: 10px;
+        margin-top: 32px;
+    }
+    
+    .carousel-indicator {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .carousel-indicator.active {
+        transform: scale(1.3);
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Large Desktop: 1280px+ */
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 40px;
+    }
+    
+    .hero-heading {
+        font-size: 72px;
+    }
+    
+    .hero-subheading {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 44px;
+    }
+    
+    .btn {
+        min-height: 56px;
+        padding: 16px 32px;
+        font-size: 18px;
+    }
+    
+    /* Featured Tours */
+    .carousel-track-container {
+        margin: 0 40px;
+    }
+    
+    .tour-card {
+        flex: 0 0 calc(33.333% - 16px);
+        min-width: calc(33.333% - 16px);
+    }
+    
+    /* FIXED: Carousel indicators for large desktop */
+    .carousel-indicators {
+        gap: 12px;
+    }
+    
+    .carousel-indicator {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .carousel-indicator.active {
+        transform: scale(1.4);
+    }
+}
+
+/* Extra Large Desktop: 1440px+ */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-heading {
+        font-size: 80px;
+    }
+    
+    .hero-subheading {
+        font-size: 26px;
+    }
+    
+    .section-title {
+        font-size: 48px;
+    }
+    
+    /* FIXED: Carousel indicators for extra large screens */
+    .carousel-indicator {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .carousel-indicator.active {
+        transform: scale(1.4);
+    }
+}
+
+/* ============================================
+   ABOUT PAGE RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .page-hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .page-hero-heading {
+        font-size: 32px;
+    }
+    
+    .page-hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .founder-content {
+        flex-direction: column;
+    }
+    
+    .founder-quote {
+        padding: 20px 16px;
+    }
+    
+    .quote-text {
+        font-size: 16px;
+        padding: 0 8px;
+    }
+    
+    .belief-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .experience-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .cta-title {
+        font-size: 28px;
+    }
+    
+    .cta-subtitle {
+        font-size: 16px;
+    }
+    
+    .cta-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .cta-note {
+        font-size: 14px;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .page-hero {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .page-hero-heading {
+        font-size: 44px;
+    }
+    
+    .founder-content {
+        flex-direction: row;
+        gap: 40px;
+    }
+    
+    .founder-image {
+        flex: 0 0 40%;
+    }
+    
+    .belief-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .experience-stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .cta-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   SERVICES PAGE RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 767px) {
+    .page-hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .services-detailed-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .service-card-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px;
+    }
+    
+    .service-icon-large {
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+    
+    .service-title {
+        font-size: 20px;
+    }
+    
+    .service-card-content {
+        padding: 20px 16px;
+    }
+    
+    .service-card-footer {
+        padding: 0 16px 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .btn-learn-more {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .service-expandable {
+        margin: 0 16px;
+        padding: 20px 0;
+    }
+    
+    .comparison-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+    
+    .comparison-title {
+        font-size: 20px;
+    }
+    
+    .comparison-items {
+        padding: 0 16px;
+    }
+    
+    .comparison-item {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 0;
+    }
+    
+    .cta-title {
+        font-size: 24px;
+    }
+    
+    .cta-text {
+        font-size: 16px;
+    }
+    
+    .cta-content {
+        padding: 32px 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn-large {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .services-detailed-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .service-card-header {
+        padding: 20px;
+    }
+    
+    .service-card-content {
+        padding: 20px;
+    }
+    
+    .service-card-footer {
+        padding: 0 20px 20px;
+    }
+    
+    .service-expandable {
+        margin: 0 20px;
+        padding: 20px 0;
+    }
+    
+    .comparison-header {
+        flex-direction: row;
+        text-align: left;
+    }
+    
+    .comparison-item {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   TOUR PACKAGES PAGE RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 767px) {
+    .category-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .category-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .category-tab {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .category-dropdown {
+        width: 100%;
+    }
+    
+    .category-select {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .package-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .package-content {
+        padding: 20px 16px;
+    }
+    
+    .package-title {
+        font-size: 20px;
+    }
+    
+    .price-amount {
+        font-size: 24px;
+    }
+    
+    .package-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn-package-details,
+    .btn-whatsapp {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .custom-tour-content {
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .custom-tour-form {
+        padding: 24px 20px;
+    }
+    
+    .tour-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal {
+        width: calc(100% - 32px);
+        max-height: 85vh;
+        margin: 16px;
+    }
+    
+    .modal-content {
+        padding: 20px;
+    }
+    
+    .modal-title {
+        font-size: 24px;
+    }
+    
+    .modal-package-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 14px;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .modal-actions .btn {
+        width: 100%;
+    }
+    
+    .inclusions-exclusions {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+    .category-tabs {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+    }
+    
+    .category-tab {
+        flex-shrink: 1;
+    }
+    
+    .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .package-content {
+        padding: 20px;
+    }
+    
+    .custom-tour-content {
+        flex-direction: row;
+        gap: 32px;
+    }
+    
+    .tour-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modal {
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .package-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .package-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .package-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+    }
+}
+
+/* Fix for filter tabs on very small screens */
+@media (max-width: 374px) {
+    .category-tab {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .package-title {
+        font-size: 18px;
+    }
+    
+    .price-amount {
+        font-size: 22px;
+    }
+}
+
+/* Fix for modal on landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+    .modal {
+        max-height: 80vh;
+    }
+    
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .modal-package-image img {
+        height: 200px;
+    }
+    
+    .inclusions-exclusions {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    .category-tab {
+        padding: 14px 24px;
+        min-height: 44px;
+    }
+    
+    .btn-package-details,
+    .btn-whatsapp,
+    .btn-learn-more {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .modal-close {
+        width: 44px;
+        height: 44px;
+    }
+    
+    /* Increase touch target size for carousel indicators while keeping visual size small */
+    .carousel-indicator {
+        min-width: 24px;
+        min-height: 24px;
+        margin: 0 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .carousel-indicator::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: currentColor;
+        transition: all 0.3s ease;
+    }
+    
+    .carousel-indicator.active::before {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* ============================================
+   SPECIAL FIXES FOR CAROUSEL INDICATORS
+   ============================================ */
+
+/* Enhanced carousel indicator sizing system */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    padding: 8px 0;
+}
+
+.carousel-indicator {
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Base size for all carousel indicators */
+.carousel-indicator::before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    background-color: #D1D5DB;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicator.active::before {
+    background-color: #2563EB;
+}
+
+/* Mobile sizes */
+@media (max-width: 767px) {
+    .carousel-indicators {
+        gap: 6px;
+        margin-top: 16px;
+    }
+    
+    .carousel-indicator::before {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .carousel-indicator.active::before {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Tablet sizes */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .carousel-indicators {
+        gap: 8px;
+        margin-top: 24px;
+    }
+    
+    .carousel-indicator::before {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .carousel-indicator.active::before {
+        width: 10px;
+        height: 10px;
+        transform: scale(1.2);
+    }
+}
+
+/* Desktop sizes */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .carousel-indicators {
+        gap: 10px;
+        margin-top: 32px;
+    }
+    
+    .carousel-indicator::before {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .carousel-indicator.active::before {
+        width: 12px;
+        height: 12px;
+        transform: scale(1.3);
+    }
+}
+
+/* Large desktop sizes */
+@media (min-width: 1280px) and (max-width: 1439px) {
+    .carousel-indicators {
+        gap: 12px;
+        margin-top: 32px;
+    }
+    
+    .carousel-indicator::before {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .carousel-indicator.active::before {
+        width: 14px;
+        height: 14px;
+        transform: scale(1.4);
+    }
+}
+
+/* Extra large desktop sizes */
+@media (min-width: 1440px) {
+    .carousel-indicators {
+        gap: 12px;
+        margin-top: 32px;
+    }
+    
+    .carousel-indicator::before {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .carousel-indicator.active::before {
+        width: 14px;
+        height: 14px;
+        transform: scale(1.4);
+    }
+}
+
+/* ============================================
+   FIXES FOR CAROUSEL ON MOBILE
+   ============================================ */
+
+/* Fix for carousel on mobile */
+@media (max-width: 767px) {
+    .tours-carousel {
+        position: relative;
+        overflow: visible;
+    }
+    
+    .carousel-track-container {
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        margin: 0 -16px;
+        padding: 0 16px 20px;
+    }
+    
+    .carousel-track {
+        display: flex;
+        gap: 16px;
+        padding: 4px 0;
+        width: max-content;
+        transition: none;
+    }
+    
+    .tour-card {
+        scroll-snap-align: center;
+        flex: 0 0 calc(100vw - 64px);
+        width: calc(100vw - 64px);
+        max-width: calc(100vw - 64px);
+        margin: 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Hide navigation buttons on mobile */
+    .carousel-btn {
+        display: none !important;
+    }
+}
+
+/* Fix for tablet carousel */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .tour-card {
+        flex: 0 0 calc(50% - 12px);
+        min-width: calc(50% - 12px);
+    }
+    
+    .carousel-track {
+        gap: 24px;
+    }
+}
+
+/* Fix for desktop carousel */
+@media (min-width: 1024px) {
+    .tour-card {
+        flex: 0 0 calc(33.333% - 16px);
+        min-width: calc(33.333% - 16px);
+    }
+    
+    .carousel-track {
+        gap: 24px;
+    }
+}
+
+/* ============================================
+   FIXES FOR IOS SAFARI
+   ============================================ */
+
+@supports (-webkit-touch-callout: none) {
+    /* iOS Safari specific fixes */
+    .hero-section {
+        height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
+    }
+    
+    .carousel-track-container {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Fix for sticky elements on iOS */
+    .sticky-whatsapp-btn {
+        position: fixed;
+        bottom: max(24px, env(safe-area-inset-bottom));
+        right: 24px;
+    }
+}
+
+/* ============================================
+   FIXES FOR ANDROID CHROME
+   ============================================ */
+
+@supports not (-webkit-touch-callout: none) {
+    /* Android Chrome specific fixes */
+    .carousel-track-container {
+        scrollbar-width: none;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .sticky-whatsapp-btn,
+    .mobile-menu-btn,
+    .carousel-btn,
+    .carousel-indicators,
+    .footer-newsletter,
+    .social-icons {
+        display: none !important;
+    }
+    
+    .main-header {
+        position: static !important;
+        box-shadow: none !important;
+    }
+    
+    .hero-section {
+        height: auto !important;
+        min-height: auto !important;
+        page-break-after: avoid;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 90%;
+    }
+    
+    .btn {
+        border: 1px solid #000 !important;
+        background: none !important;
+        color: #000 !important;
+    }
+}
+
+/* ============================================
+   BOOKING PROCESS SECTION - KEPT AS REQUESTED
+   ============================================ */
+
+@media (min-width: 768px) {
+    /* Booking Process */
+    .process-steps {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .process-step {
+        flex: 1;
+    }
+    
+    .process-connector {
+        display: block;
+        position: absolute;
+        top: 20px;
+        width: calc(100% / 3);
+        height: 2px;
+        background-color: #E5E7EB;
+        left: 16.666%;
+        z-index: -1;
+        border-top: 2px dotted #2563EB;
+    }
+    
+    .process-connector:nth-child(4) {
+        left: 50%;
+    }
+}
